@@ -1,0 +1,46 @@
+# Mantiene el contexto de build minimo. Los Dockerfiles de task_1a/docker y
+# task_1b/docker se construyen con contexto = raiz del repo (necesitan COPY de
+# checkpoints/results sin duplicarlos), pero NO deben enviar al daemon los
+# datasets, caches y artefactos pesados que no usan.
+
+.git/
+**/__pycache__/
+**/.claude/
+
+# Datasets y workspaces pesados (no usados por las imagenes de submission)
+data/
+nnunet_workspace/
+paper_combined/
+lisatask1aresults/
+docs/gradcam/
+docs/paper_figures/
+download_data.ipynb
+
+# Predicciones/zips sueltos en la raiz (no son parte de la imagen)
+*.zip
+*.csv
+9768080_logs.txt
+
+# Task 1a: solo se necesitan checkpoints ensemble effb4/convnexts + thresholds.json
+task_1a/archive/
+task_1a/paper/
+task_1a/checkpoints/archive/
+task_1a/checkpoints/best_1a.pth
+task_1a/checkpoints/best_1a_v8.pth
+task_1a/checkpoints/best_1a_v9.pth
+task_1a/checkpoints/best_1a_v9_fold*.pth
+task_1a/results/*.npz
+task_1a/task1a-resultados.csv
+
+# Task 1b: la imagen docker no usa ningun checkpoint entrenado (pipeline native_clean)
+task_1b/checkpoints/
+task_1b/npy_cache/
+task_1b/reg_cache/
+task_1b/submission/
+task_1b/paper/
+task_1b/*.zip
+task_1b/task1b-resultados.csv
+task_1b/9768080_logs.txt
+
+# Task 2: lo maneja el companero de equipo por separado
+task_2/

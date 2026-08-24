@@ -1,0 +1,118 @@
+# ============================================================
+# LISA Challenge 2026 — .gitignore
+# ============================================================
+
+# ─── Datos del challenge (pesados / privados) ───────────────
+data/
+nnunet_workspace/
+
+# ─── Notebooks de descarga ─────────────────────────────────
+download_data.ipynb
+
+# ─── PDFs externos ─────────────────────────────────────────
+# *.pdf
+
+# ─── Herramienta IA ────────────────────────────────────────
+.claude/
+
+# ─── Checkpoints y modelos entrenados ──────────────────────────────
+task_1a/checkpoints/
+task_1b/checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.h5
+
+# ─── Paper y versiones antiguas (no son código fuente) ────────────
+task_1a/paper/
+task_1a/archive/
+task_1b/paper/
+
+# ─── Archivos de submission generados ──────────────────────
+/LISA_LF_QC_predictions.csv
+/LISA_LF_QC_predictions_*.csv
+/LISA_LF_QC_predictions[0-9]*.csv
+submission_task1a*.csv
+lisatask1aresults/
+task_1a/task1a-resultados.csv
+task_1b/task1b-resultados.csv
+
+# ─── Predicciones/backups pesados (van al paquete de datos crudos, no a git) ──
+# Superan incluso el límite de 100 MB por archivo de GitHub.
+/LISA_enhanced_predictions*.zip
+task_1b/*.zip
+task_2/paper_task2.zip
+/9768080_logs.txt
+task_1b/9768080_logs.txt
+
+# ─── Paper y correspondencia de revisión (no van al repo público) ──
+# El código va a GitHub; el paper (LNCS, copyright Springer) y todo
+# el material de revisión/comentarios se declaran solo en el README
+# (cita BibTeX), no se redistribuyen como archivo.
+paper_combined/
+task_2/paper_task2/
+
+# ─── Resultados / artefactos generados (se declaran en el README, no se suben) ──
+task_1a/results/
+task_1b/results/
+
+# ─── docs/ interno (roadmaps, logs de experimentos, guías) — no se sube ────
+docs/
+
+# ─── Artefactos de compilación LaTeX ────────────────────────────
+*.aux
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+
+# ─── Python ────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# ─── Cache .npy (pre-procesamiento de datos) ───────────────────
+# Generado por preprocess_to_npy.py — no subir al repo (binarios grandes)
+task_1b/npy_cache/
+
+# ─── Predicciones NIfTI de Task 1b sin comprimir (~1.36 GB) ────────
+# Mismas variantes descartadas que los .zip de la raíz, solo que
+# extraídas — van al paquete de datos crudos del equipo, no a git.
+task_1b/submission/
+
+# ─── Cache de registro CISO↔LF (417 MB, deriva de imágenes de Synapse) ──
+task_1b/reg_cache/
+*.egg
+dist/
+build/
+.eggs/
+
+# ─── Entornos virtuales ────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ─── Jupyter ───────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ─── IDEs ──────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ─── Sistema operativo ─────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Logs y temporales ─────────────────────────────────────
+*.log
+*.tmp
+*.bak
