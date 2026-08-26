@@ -1,0 +1,42 @@
+{
+  "labels": [
+    "effb4",
+    "convnexts"
+  ],
+  "t1_per_class": {
+    "Noise": 0.65,
+    "Zipper": 0.5,
+    "Positioning": 0.65,
+    "Banding": 0.55,
+    "Motion": 0.6,
+    "Contrast": 0.5,
+    "Distortion": 0.65
+  },
+  "t2_per_class": {
+    "Noise": 0.35,
+    "Zipper": 0.5,
+    "Positioning": 0.35,
+    "Banding": 0.25,
+    "Motion": 0.25,
+    "Contrast": 0.4,
+    "Distortion": 0.55
+  },
+  "baseline": {
+    "f1_micro": 0.8278732545649838,
+    "f2_micro": 0.8278732545649838,
+    "precision_micro": 0.8278732545649838,
+    "recall_micro": 0.8278732545649838,
+    "accuracy_micro": 0.8278732545649838,
+    "f1_macro": 0.6724367665267569,
+    "score": 0.8278732545649838
+  },
+  "calibrated": {
+    "f1_micro": 0.83968850698174,
+    "f2_micro": 0.83968850698174,
+    "precision_micro": 0.83968850698174,
+    "recall_micro": 0.83968850698174,
+    "accuracy_micro": 0.83968850698174,
+    "f1_macro": 0.6905656303946225,
+    "score": 0.8396885069817401
+  }
+}

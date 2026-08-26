@@ -1,0 +1,196 @@
+{
+  "source": "postproc_sweep.json",
+  "n_cases": 79,
+  "note": "ensemble OOF de 5 folds contra ground truth manual; medias no ponderadas sobre etiquetas, lados bilaterales incluidos por separado",
+  "postproc": {
+    "raw": {
+      "description": "no post-processing",
+      "scored9": {
+        "dice": 0.7843,
+        "hd": 4.5916,
+        "hd95": 2.5636,
+        "assd": 0.9991,
+        "rve": 14.5802
+      },
+      "all11": {
+        "dice": 0.7836,
+        "hd": 4.6798,
+        "hd95": 2.4775,
+        "assd": 0.9376,
+        "rve": 14.2593
+      }
+    },
+    "pkl": {
+      "description": "nnU-Net structure-specific (adopted)",
+      "scored9": {
+        "dice": 0.7849,
+        "hd": 4.5055,
+        "hd95": 2.4826,
+        "assd": 0.9777,
+        "rve": 14.5345
+      },
+      "all11": {
+        "dice": 0.7842,
+        "hd": 4.59,
+        "hd95": 2.4008,
+        "assd": 0.92,
+        "rve": 14.2779
+      }
+    },
+    "lcc_all": {
+      "description": "largest component, all labels",
+      "scored9": {
+        "dice": 0.7805,
+        "hd": 4.5364,
+        "hd95": 2.5602,
+        "assd": 1.2283,
+        "rve": 14.4806
+      },
+      "all11": {
+        "dice": 0.7806,
+        "hd": 4.6153,
+        "hd95": 2.4643,
+        "assd": 1.1251,
+        "rve": 14.2338
+      }
+    },
+    "frac30": {
+      "description": "drop fragments <30% of largest",
+      "scored9": {
+        "dice": 0.7842,
+        "hd": 4.5824,
+        "hd95": 2.583,
+        "assd": 1.0744,
+        "rve": 14.5884
+      },
+      "all11": {
+        "dice": 0.7835,
+        "hd": 4.6656,
+        "hd95": 2.4904,
+        "assd": 1.001,
+        "rve": 14.2714
+      }
+    },
+    "abs50": {
+      "description": "drop fragments <50 voxels",
+      "scored9": {
+        "dice": 0.7842,
+        "hd": 4.5824,
+        "hd95": 2.5818,
+        "assd": 1.0686,
+        "rve": 14.5996
+      },
+      "all11": {
+        "dice": 0.7835,
+        "hd": 4.6712,
+        "hd95": 2.4912,
+        "assd": 0.9967,
+        "rve": 14.2762
+      }
+    },
+    "pkl+abs50": {
+      "description": "adopted + <50 voxels",
+      "scored9": {
+        "dice": 0.7848,
+        "hd": 4.4963,
+        "hd95": 2.5009,
+        "assd": 1.0472,
+        "rve": 14.5527
+      },
+      "all11": {
+        "dice": 0.7841,
+        "hd": 4.5825,
+        "hd95": 2.4158,
+        "assd": 0.9769,
+        "rve": 14.2928
+      }
+    }
+  },
+  "per_structure_adopted": {
+    "Hippocampus L": {
+      "dice": 0.6265,
+      "hd": 5.2952,
+      "hd95": 3.6534,
+      "assd": 1.7087,
+      "rve": 22.9491
+    },
+    "Hippocampus R": {
+      "dice": 0.6541,
+      "hd": 4.9739,
+      "hd95": 3.5153,
+      "assd": 1.3974,
+      "rve": 24.0306
+    },
+    "Ventricle L": {
+      "dice": 0.7896,
+      "hd": 4.7856,
+      "hd95": 1.9133,
+      "assd": 0.6429,
+      "rve": 13.5459
+    },
+    "Ventricle R": {
+      "dice": 0.7723,
+      "hd": 5.155,
+      "hd95": 2.1526,
+      "assd": 0.6781,
+      "rve": 12.6999
+    },
+    "Caudate L": {
+      "dice": 0.8122,
+      "hd": 4.2862,
+      "hd95": 2.3192,
+      "assd": 0.8611,
+      "rve": 14.2698
+    },
+    "Caudate R": {
+      "dice": 0.8023,
+      "hd": 3.7658,
+      "hd95": 2.1288,
+      "assd": 0.8182,
+      "rve": 11.5287
+    },
+    "Lentiform L": {
+      "dice": 0.8369,
+      "hd": 5.1807,
+      "hd95": 2.2401,
+      "assd": 1.0238,
+      "rve": 13.5661
+    },
+    "Lentiform R": {
+      "dice": 0.8326,
+      "hd": 4.1738,
+      "hd95": 2.6953,
+      "assd": 1.1014,
+      "rve": 16.7971
+    },
+    "Thalamus L": {
+      "dice": 0.8757,
+      "hd": 3.8127,
+      "hd95": 2.191,
+      "assd": 0.7632,
+      "rve": 11.1449
+    },
+    "Thalamus R": {
+      "dice": 0.875,
+      "hd": 4.0719,
+      "hd95": 2.0804,
+      "assd": 0.6657,
+      "rve": 8.7868
+    },
+    "Corpus callosum": {
+      "dice": 0.7488,
+      "hd": 4.9891,
+      "hd95": 1.5196,
+      "assd": 0.4595,
+      "rve": 7.7375
+    }
+  },
+  "headline": {
+    "adopted_dice_all11": 0.7842,
+    "adopted_dice_scored9": 0.7849,
+    "adopted_assd_all11": 0.92,
+    "adopted_assd_scored9": 0.9777,
+    "uniform_lcc_assd_all11": 1.1251,
+    "conclusion": "el esquema adoptado es el mejor en DSC, HD95 y ASSD bajo ambos conjuntos de etiquetas; el LCC uniforme degrada ASSD en ambos"
+  }
+}

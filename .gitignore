@@ -28,14 +28,14 @@ task_1a/paper/
 task_1a/archive/
 task_1b/paper/
 
-# ─── Archivos de submission generados ──────────────────────
+# ─── PDFs en docs/ ─────────────────────────────────────────
+docs/*.pdf
+
+# ─── Archivos de submission generados (solo raíz — lisatask1aresults/ se conserva) ──
 /LISA_LF_QC_predictions.csv
 /LISA_LF_QC_predictions_*.csv
 /LISA_LF_QC_predictions[0-9]*.csv
 submission_task1a*.csv
-lisatask1aresults/
-task_1a/task1a-resultados.csv
-task_1b/task1b-resultados.csv
 
 # ─── Predicciones/backups pesados (van al paquete de datos crudos, no a git) ──
 # Superan incluso el límite de 100 MB por archivo de GitHub.
@@ -45,19 +45,14 @@ task_2/paper_task2.zip
 /9768080_logs.txt
 task_1b/9768080_logs.txt
 
-# ─── Paper y correspondencia de revisión (no van al repo público) ──
-# El código va a GitHub; el paper (LNCS, copyright Springer) y todo
-# el material de revisión/comentarios se declaran solo en el README
-# (cita BibTeX), no se redistribuyen como archivo.
-paper_combined/
+# ─── Paper con identidad de autores (solo para revisión ciega ya superada) ──
+# El paper final que se envió a revisión es la versión anónima
+# (paper_combined/paper.tex, paper.pdf, LISA2026_submission11_syn75277286.pdf).
+# Estos otros archivos identifican a los autores y no van al repo mientras
+# el equipo no decida explícitamente publicarlos.
+paper_combined/LISA2026_Marca_et_al.pdf
+paper_combined/LISA2026_Marca_et_al_source.zip
 task_2/paper_task2/
-
-# ─── Resultados / artefactos generados (se declaran en el README, no se suben) ──
-task_1a/results/
-task_1b/results/
-
-# ─── docs/ interno (roadmaps, logs de experimentos, guías) — no se sube ────
-docs/
 
 # ─── Artefactos de compilación LaTeX ────────────────────────────
 *.aux
@@ -116,3 +111,12 @@ desktop.ini
 *.log
 *.tmp
 *.bak
+
+# ─── Material de revisión con texto verbatim de los revisores ──────
+# El equipo decidió no publicar las reseñas literales en un repo público.
+# Viven sólo en el paquete local del equipo. Lo que sí se publica es la
+# carta de respuesta (RESPONSE_TO_REVIEWERS.md) y las versiones revisada
+# y con cambios marcados del manuscrito.
+paper_combined/REVIEWS_LISA2026.md
+paper_combined/analysis/review_map.py
+paper_combined/paper_interactive.*
