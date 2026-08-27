@@ -21,11 +21,67 @@ quality control, image-quality enhancement and segmentation on ultra-low-field
 Full methodology, ablations and diagnosis of each negative result are in the
 paper (citation below).
 
+## Manuscript and peer review
+
+The submitted manuscript received two reviews. The revision addressed every
+substantive request with new analysis rather than argument, using only the
+already-stored out-of-fold predictions — **no test-set or leaderboard
+information was used, and nothing was retrained**. Everything needed to read
+and to reproduce that revision is in [`paper_combined/`](paper_combined/):
+
+| File | What it is |
+|---|---|
+| [`paper.tex` / `paper.pdf`](paper_combined/) | the version submitted to review |
+| [`paper_revised.pdf`](paper_combined/paper_revised.pdf) | the revised manuscript, clean |
+| [`paper_tracked.pdf`](paper_combined/paper_tracked.pdf) | the same text with every change marked, coloured per reviewer |
+| [`RESPONSE_TO_REVIEWERS.md`](paper_combined/RESPONSE_TO_REVIEWERS.md) | the response letter, point by point |
+
+The revised versions are **generated, not hand-edited** — the edits live in
+`analysis/edits.py` and are applied to `paper.tex` by `analysis/make_versions.py`.
+`python make_versions.py --check` verifies that stripping the marks from the
+tracked version reproduces the clean one exactly:
+
+```bash
+cd paper_combined/analysis/
+python make_versions.py --check     # -> OK: tracked minus marks == revised
+```
+
+Three analyses back the revision. **None of them retrains anything** — they all
+run on already-stored out-of-fold predictions. Their code and their JSON
+outputs are tracked here; what each one needs to be *re-run* differs:
+
+| Analysis | Answers | Code | Output | To re-run you also need |
+|---|---|---|---|---|
+| Positive-case recall per acquisition plane | uneven representation of localised artifacts | [`analysis/task1a_oof_analysis.py`](paper_combined/analysis/task1a_oof_analysis.py) | `task1a_oof_analysis.json` | the label CSV from Synapse (`--labels`) |
+| Five-way slice-sampling ablation | whether the fixed 25/50/75-percentile input is justified | [`task_1a/slice_ablation.py`](task_1a/slice_ablation.py) | `task_1a/results/slice_ablation*.json` | the challenge volumes (`--data-root`) and the ten checkpoints |
+| Nine- vs eleven-label aggregation | scoring the ventricles under the 2026 criteria | [`analysis/task2_label_sets.py`](paper_combined/analysis/task2_label_sets.py) | `task2_label_sets.json` | nothing — [`task_2/qc_output/postproc_sweep.json`](task_2/qc_output/postproc_sweep.json) is tracked, so this one runs as-is |
+
+The slice-sampling ablation holds the ten trained models, the fold assignment
+and the calibrated thresholds fixed and changes only which slices form the
+input channels, so the leakage-free out-of-fold property is preserved exactly.
+Its result is two-sided and reported as such in the paper: exhaustive slice
+coverage recovers localised artifacts (zipper recall 0.726 → 0.799) but
+degrades those whose signature is an inter-slice inconsistency (motion
+0.527 → 0.314).
+
+> The reviewers' verbatim comments are not reproduced in this public
+> repository. `RESPONSE_TO_REVIEWERS.md` states each request in full before
+> answering it.
+
 ## Repository structure
 
 ```
 lisa-challenge2026/
+├── paper_combined/          # manuscript, revision and the analyses behind it
+│   ├── paper.tex/.pdf           # version submitted to review
+│   ├── paper_revised.tex/.pdf   # revised version (clean)
+│   ├── paper_tracked.tex/.pdf   # same, with changes marked per reviewer
+│   ├── RESPONSE_TO_REVIEWERS.md # response letter
+│   ├── analysis/                # scripts that produce the revision's new tables
+│   └── figures/
+├── docs/                    # data structure, submission and per-task process notes
 ├── task_1a/                 # ordinal artifact classification
+│   └── results/                 # OOF predictions, calibrated thresholds, ablations
 ├── task_1b/                 # image-quality enhancement
 └── task_2/                  # subcortical segmentation (nnU-Net v2)
 ```
@@ -35,9 +91,10 @@ module reference.
 
 > **Note:** `data/`, `nnunet_workspace/`, trained checkpoints (`*.pth`) and
 > submission predictions/zips are not in this repository, due to size and,
-> for `data/`, the Synapse data-use agreement. Results artifacts (OOF
-> predictions, per-run metrics, figures) are likewise not tracked here — the
-> headline numbers are reported above and the full results in the paper.
+> for `data/`, the Synapse data-use agreement. What *is* tracked are the
+> lightweight results artifacts the paper's claims rest on: the out-of-fold
+> predictions and calibrated thresholds for Task 1A ([`task_1a/results/`](task_1a/results/))
+> and the JSON outputs of the revision analyses ([`paper_combined/analysis/`](paper_combined/analysis/)).
 
 ## Requirements
 

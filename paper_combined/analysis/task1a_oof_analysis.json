@@ -1,0 +1,283 @@
+{
+  "protocol": "OOF 5-fold StratifiedGroupKFold, ensemble 2 backbones, sin TTA (el TTA x8 se aplica en el pipeline de submission, no en esta estimaci\u00f3n)",
+  "n_images": 532,
+  "thresholds": {
+    "t1": [
+      0.65,
+      0.5,
+      0.65,
+      0.55,
+      0.6,
+      0.5,
+      0.65
+    ],
+    "t2": [
+      0.35,
+      0.5,
+      0.35,
+      0.25,
+      0.25,
+      0.4,
+      0.55
+    ]
+  },
+  "effb4": {
+    "at_0.5": {
+      "micro_acc": 0.8198174006444683
+    },
+    "calibrated": {
+      "micro_acc": 0.8278732545649838
+    }
+  },
+  "convnexts": {
+    "at_0.5": {
+      "micro_acc": 0.8238453276047261
+    },
+    "calibrated": {
+      "micro_acc": 0.8262620837808807
+    }
+  },
+  "ensemble": {
+    "at_0.5": {
+      "micro_acc": 0.8278732545649838
+    },
+    "calibrated": {
+      "micro_acc": 0.83968850698174
+    }
+  },
+  "overall": {
+    "micro_acc": 0.83968850698174,
+    "n_pos_cells": 873,
+    "recall_pos": 0.5910652920962199,
+    "exact_grade_on_pos": 0.4879725085910653
+  },
+  "per_fold": {
+    "micro_acc": [
+      0.8386,
+      0.8425,
+      0.8383,
+      0.8208,
+      0.8585
+    ],
+    "mean": 0.8397,
+    "std": 0.0134,
+    "min": 0.8208,
+    "max": 0.8585
+  },
+  "per_plane": {
+    "axi": {
+      "n_images": 176,
+      "n_pos_cells": 285,
+      "micro_acc": 0.8555,
+      "recall_pos": 0.6175,
+      "exact_grade_on_pos": 0.5649
+    },
+    "cor": {
+      "n_images": 181,
+      "n_pos_cells": 246,
+      "micro_acc": 0.8461,
+      "recall_pos": 0.5081,
+      "exact_grade_on_pos": 0.3618
+    },
+    "sag": {
+      "n_images": 175,
+      "n_pos_cells": 342,
+      "micro_acc": 0.8171,
+      "recall_pos": 0.6287,
+      "exact_grade_on_pos": 0.5146
+    }
+  },
+  "per_plane_class": {
+    "Noise": {
+      "axi": {
+        "n_pos": 32,
+        "recall_pos": 0.7812
+      },
+      "cor": {
+        "n_pos": 24,
+        "recall_pos": 0.5417
+      },
+      "sag": {
+        "n_pos": 37,
+        "recall_pos": 0.5946
+      },
+      "all": {
+        "n_pos": 93,
+        "recall_pos": 0.6452
+      }
+    },
+    "Zipper": {
+      "axi": {
+        "n_pos": 38,
+        "recall_pos": 0.5526
+      },
+      "cor": {
+        "n_pos": 31,
+        "recall_pos": 0.4516
+      },
+      "sag": {
+        "n_pos": 110,
+        "recall_pos": 0.8636
+      },
+      "all": {
+        "n_pos": 179,
+        "recall_pos": 0.7263
+      }
+    },
+    "Positioning": {
+      "axi": {
+        "n_pos": 16,
+        "recall_pos": 0.25
+      },
+      "cor": {
+        "n_pos": 34,
+        "recall_pos": 0.4118
+      },
+      "sag": {
+        "n_pos": 20,
+        "recall_pos": 0.35
+      },
+      "all": {
+        "n_pos": 70,
+        "recall_pos": 0.3571
+      }
+    },
+    "Banding": {
+      "axi": {
+        "n_pos": 6,
+        "recall_pos": 0.1667
+      },
+      "cor": {
+        "n_pos": 7,
+        "recall_pos": 0.7143
+      },
+      "sag": {
+        "n_pos": 8,
+        "recall_pos": 0.5
+      },
+      "all": {
+        "n_pos": 21,
+        "recall_pos": 0.4762
+      }
+    },
+    "Motion": {
+      "axi": {
+        "n_pos": 53,
+        "recall_pos": 0.3962
+      },
+      "cor": {
+        "n_pos": 63,
+        "recall_pos": 0.6825
+      },
+      "sag": {
+        "n_pos": 53,
+        "recall_pos": 0.4717
+      },
+      "all": {
+        "n_pos": 169,
+        "recall_pos": 0.5266
+      }
+    },
+    "Contrast": {
+      "axi": {
+        "n_pos": 100,
+        "recall_pos": 0.87
+      },
+      "cor": {
+        "n_pos": 43,
+        "recall_pos": 0.5349
+      },
+      "sag": {
+        "n_pos": 54,
+        "recall_pos": 0.5741
+      },
+      "all": {
+        "n_pos": 197,
+        "recall_pos": 0.7157
+      }
+    },
+    "Distortion": {
+      "axi": {
+        "n_pos": 40,
+        "recall_pos": 0.425
+      },
+      "cor": {
+        "n_pos": 44,
+        "recall_pos": 0.2955
+      },
+      "sag": {
+        "n_pos": 60,
+        "recall_pos": 0.5167
+      },
+      "all": {
+        "n_pos": 144,
+        "recall_pos": 0.4236
+      }
+    }
+  },
+  "per_class": {
+    "Noise": {
+      "n1": 42,
+      "n2": 51,
+      "acc": 0.9079,
+      "qwk": 0.8133,
+      "recall_pos": 0.6452,
+      "t1": 0.65,
+      "t2": 0.35
+    },
+    "Zipper": {
+      "n1": 142,
+      "n2": 37,
+      "acc": 0.812,
+      "qwk": 0.6442,
+      "recall_pos": 0.7263,
+      "t1": 0.5,
+      "t2": 0.5
+    },
+    "Positioning": {
+      "n1": 45,
+      "n2": 25,
+      "acc": 0.8741,
+      "qwk": 0.4775,
+      "recall_pos": 0.3571,
+      "t1": 0.65,
+      "t2": 0.35
+    },
+    "Banding": {
+      "n1": 9,
+      "n2": 12,
+      "acc": 0.9699,
+      "qwk": 0.6901,
+      "recall_pos": 0.4762,
+      "t1": 0.55,
+      "t2": 0.25
+    },
+    "Motion": {
+      "n1": 93,
+      "n2": 76,
+      "acc": 0.7744,
+      "qwk": 0.7046,
+      "recall_pos": 0.5266,
+      "t1": 0.6,
+      "t2": 0.25
+    },
+    "Contrast": {
+      "n1": 166,
+      "n2": 31,
+      "acc": 0.7707,
+      "qwk": 0.6081,
+      "recall_pos": 0.7157,
+      "t1": 0.5,
+      "t2": 0.4
+    },
+    "Distortion": {
+      "n1": 95,
+      "n2": 49,
+      "acc": 0.7688,
+      "qwk": 0.4587,
+      "recall_pos": 0.4236,
+      "t1": 0.65,
+      "t2": 0.55
+    }
+  }
+}
